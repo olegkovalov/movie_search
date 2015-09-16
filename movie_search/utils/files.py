@@ -1,6 +1,6 @@
 import os
 
-from settings import POSTER_ROOT
+from movie_search.settings import POSTER_ROOT
 
 
 class FileManage(object):
