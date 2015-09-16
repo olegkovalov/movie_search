@@ -1,19 +1,18 @@
 {% extends 'base.html' %}
 
+{% set page = 'search' %}
+
 {% block content %}
 
-<form action="{{ request.route_url('search') }}" method="get">
-  <input type="search" name="q"/>
-</form>
 {% if movie %}
-    <p>{{ movie.title }}</p>
+    <p><h3>{{ movie.title }}</h3></p>
     {% if movie.poster %}
-      <p><img src="/static/poster/{{ movie.poster }}" alt=""/></p>
+      <p><img src="/static/poster/{{ movie.poster }}" class="img-rounded" alt=""/></p>
     {% endif %}
 {% endif %}
 
 {% if q and not movie %}
-<p>No results</p>
+<p class="text-warning"><h3 class="text-warning">No results</h3></p>
 {% endif %}
 
 {% endblock %}

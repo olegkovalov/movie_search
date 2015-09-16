@@ -1,12 +1,14 @@
 {% extends 'base.html' %}
 
+{% set page = 'movies' %}
+
 {% block content %}
 
 {% for movie in movie_list %}
-  <p>{{ movie.title }}</p>
-  <p>{{ movie.created|pretty_date }}</p>
+  <p><h3>{{ movie.title }}</h3></p>
+  <p class="text-muted">{{ movie.created|pretty_date }}</p>
   {% if movie.poster %}
-    <p><img src="/static/poster/{{ movie.poster }}" alt=""/></p>
+    <p><img src="/static/poster/{{ movie.poster }}" class="img-rounded" alt=""/></p>
   {% endif %}
   <br/>
 {% endfor %}
