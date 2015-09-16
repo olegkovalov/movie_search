@@ -21,7 +21,5 @@ class Movie(Document):
         else:
             f = FileManage(self.poster)
             if int(r.headers['content-length']) != f.get_length():
-                print f.get_length()
-                print(r.headers['content-length'])
                 f.remove()
                 self.poster = f.upload(r)

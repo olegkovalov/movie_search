@@ -15,8 +15,8 @@ class FileManage(object):
             filename = self.get_unique_filename(filename)
             file_path = os.path.join(POSTER_ROOT, filename)
         with open(file_path, 'wb') as output_file:
-            for chunc in input_file:
-                output_file.write(chunc)
+            for chunk in input_file:
+                output_file.write(chunk)
         return filename
 
     def remove(self):
