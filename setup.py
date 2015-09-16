@@ -16,6 +16,7 @@ requires = [
     'pyramid_jinja2==2.5',
     'pymongo==2.8',
     'mongoengine==0.10.0',
+    'requests==2.7.0',
     ]
 
 entry_points = {
