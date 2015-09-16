@@ -22,4 +22,4 @@ class Movie(Document):
             f = FileManage(self.poster)
             if int(r.headers['content-length']) != f.get_length():
                 f.remove()
-                self.poster = f.upload(r)
+                self.poster = f.upload(r.content)
