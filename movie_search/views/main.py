@@ -23,7 +23,7 @@ class SearchView(BaseView):
         movie = None
         title = None
 
-        if q and len(q) > 3:
+        if q and len(q) > 2:
             title, poster_url = self.get_movie_info(q)
 
         if title:
