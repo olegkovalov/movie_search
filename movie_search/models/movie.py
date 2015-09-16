@@ -1,9 +1,9 @@
-import requests
-
 from datetime import datetime
-from mongoengine import Document, StringField, SequenceField, DateTimeField, ReferenceField
 
-from movie_search.files import FileManage
+import requests
+from mongoengine import Document, StringField, SequenceField, DateTimeField
+
+from movie_search.utils.files import FileManage
 
 
 class Movie(Document):
