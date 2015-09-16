@@ -4,6 +4,7 @@ from bson import json_util
 from pyramid.view import view_defaults, view_config
 
 from movie_search.models.movie import Movie
+from movie_search.models.history import History
 from movie_search.settings import OMDB_URL
 
 
@@ -49,17 +50,19 @@ class SearchView(BaseView):
         else:
             movie = Movie.objects(title=title).first()
 
+        History(movie=movie).save()
+
         if poster_url:
             movie.update_poster(poster_url)
             movie.save()
         return movie
 
 
-@view_defaults(route_name='movie_list', renderer='movies.html')
-class MovieListView(BaseView):
+@view_defaults(route_name='history_list', renderer='history.html')
+class HistoryListView(BaseView):
 
     @view_config(request_method='GET')
     def get(self):
         return {
-            'movie_list': Movie.objects().order_by('date')
+            'history_list': History.objects().order_by('date')
         }

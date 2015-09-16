@@ -30,7 +30,7 @@
           <a class="navbar-brand" href="{{ request.route_url('search') }}">Search movie</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-          <a class="navbar-brand" href="{{ request.route_url('movie_list') }}">History</a>
+          <a class="navbar-brand" href="{{ request.route_url('history_list') }}">History</a>
           <form class="navbar-form navbar-left" action="{{ request.route_url('search') }}" method="get">
             <div class="form-group">
               <input placeholder="Movie title" class="form-control" type="text" name="q">
