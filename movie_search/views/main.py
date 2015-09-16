@@ -1,4 +1,5 @@
 import requests
+from datetime import datetime
 
 from bson import json_util
 from pyramid.view import view_defaults, view_config
@@ -50,7 +51,7 @@ class SearchView(BaseView):
         else:
             movie = Movie.objects(title=title).first()
 
-        History(movie=movie).save()
+        History(movie=movie, created=datetime.now()).save()
 
         if poster_url:
             movie.update_poster(poster_url)

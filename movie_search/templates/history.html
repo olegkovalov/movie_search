@@ -6,7 +6,7 @@
 
 {% for h in history_list %}
   <p><h3>{{ h.movie.title }}</h3></p>
-  <p class="text-muted">{{ h.movie.created|pretty_date }}</p>
+  <p class="text-muted">{{ h.created|pretty_date }}</p>
   {% if h.movie.poster %}
     <p><img src="/static/poster/{{ h.movie.poster }}" class="img-rounded" alt=""/></p>
   {% endif %}
