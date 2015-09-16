@@ -1,10 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-  <meta charset="UTF-8">
-  <title></title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block content %}
+
+<form action="{{ request.route_url('search') }}" method="get">
+  <input type="search" name="q"/>
+</form>
+{% if movie %}
+    <p>{{ movie.title }}</p>
+    {% if movie.poster %}
+      <p><img src="/static/poster/{{ movie.poster }}" alt=""/></p>
+    {% endif %}
+{% endif %}
+
+{% if q and not movie %}
+<p>No results</p>
+{% endif %}
+
+{% endblock %}
