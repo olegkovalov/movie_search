@@ -54,3 +54,12 @@ class SearchView(BaseView):
             movie.save()
         return movie
 
+
+@view_defaults(route_name='movie_list', renderer='movies.html')
+class MovieListView(BaseView):
+
+    @view_config(request_method='GET')
+    def get(self):
+        return {
+            'movie_list': Movie.objects().order_by('date')
+        }

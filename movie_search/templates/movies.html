@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for movie in movie_list %}
+  <p>{{ movie.title }}</p>
+  <p>{{ movie.created|pretty_date }}</p>
+  {% if movie.poster %}
+    <p><img src="/static/poster/{{ movie.poster }}" alt=""/></p>
+  {% endif %}
+  <br/>
+{% endfor %}
+
+{% endblock %}
